@@ -4,8 +4,11 @@ const expressGraphQL = require('express-graphql');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const schema = require('./schema/schema');
+const cors = require('cors');
 
 const app = express();
+
+app.use(cors())
 
 require('dotenv').load();
 
@@ -24,7 +27,7 @@ mongoose.connection
 app.use(bodyParser.json());
 app.use('/graphql', expressGraphQL({
   schema,
-  graphiql: true
+  graphiql: false
 }));
 
 const webpackMiddleware = require('webpack-dev-middleware');
