@@ -1,2 +1,2 @@
-# Lyrical-GraphQL
-Starter project from a GraphQL course on Udemy.com
+# LambdaNotes GraphQL Backend
+To be used with Lambda Notes, code mostly taken from Stephen Grider's Lyrical Repo
