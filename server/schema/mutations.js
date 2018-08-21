@@ -24,7 +24,23 @@ const mutation = new GraphQLObjectType({
       resolve(parentValue, { id }) {
         return Note.remove({ _id: id });
       }
-    }
+    },
+    updateNote: {
+      type: NoteType,
+      args: {
+        id: { type: GraphQLID },
+        title: { type: GraphQLString },
+        content: { type: GraphQLString },
+        tags: { type: new GraphQLList(GraphQLString) },
+      },
+      resolve(parentValue, { id, title, content, tags }) {
+        return Note.findByIdAndUpdate(id, {
+          title: title, 
+          content: content, 
+          tags: tags
+        });
+      }
+    },
   }
 });
 
