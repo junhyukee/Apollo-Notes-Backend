@@ -8,6 +8,7 @@ const NoteType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     title: { type: GraphQLString },
+    content: { type: GraphQLString },
     tags: {
       type: new GraphQLList(GraphQLString),
     }

@@ -11,10 +11,11 @@ const mutation = new GraphQLObjectType({
       type: NoteType,
       args: {
         title: { type: GraphQLString },
+        content: { type: GraphQLString },
         tags: { type: new GraphQLList(GraphQLString) },
       },
-      resolve(parentValue, { title, tags }) {
-        return (new Note({ title, tags })).save()
+      resolve(parentValue, { title, content, tags }) {
+        return (new Note({ title, content, tags })).save()
       }
     },
     deleteNote: {
