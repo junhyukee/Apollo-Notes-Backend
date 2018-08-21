@@ -1,34 +1,25 @@
 const mongoose = require('mongoose');
 const graphql = require('graphql');
 const { GraphQLObjectType, GraphQLList, GraphQLID, GraphQLNonNull } = graphql;
-const SongType = require('./song_type');
-const LyricType = require('./lyric_type');
-const Lyric = mongoose.model('lyric');
-const Song = mongoose.model('song');
+const NoteType = require('./note_type');
+const Note = mongoose.model('note');
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: () => ({
-    songs: {
-      type: new GraphQLList(SongType),
+    notes: {
+      type: new GraphQLList(NoteType),
       resolve() {
-        return Song.find({});
+        return Note.find({});
       }
     },
-    song: {
-      type: SongType,
+    note: {
+      type: NoteType,
       args: { id: { type: new GraphQLNonNull(GraphQLID) } },
       resolve(parentValue, { id }) {
-        return Song.findById(id);
+        return Note.findById(id);
       }
     },
-    lyric: {
-      type: LyricType,
-      args: { id: { type: new GraphQLNonNull(GraphQLID) } },
-      resolve(parnetValue, { id }) {
-        return Lyric.findById(id);
-      }
-    }
   })
 });
 
