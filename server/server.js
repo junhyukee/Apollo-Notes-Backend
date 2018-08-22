@@ -12,7 +12,12 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(cors())
+var corsOptions = {
+  origin: 'http://localhost:3000',
+  credentials: true
+};
+
+app.use(cors(corsOptions));
 
 require('dotenv').load();
 
