@@ -15,9 +15,10 @@ const mutation = new GraphQLObjectType({
         title: { type: GraphQLString },
         content: { type: GraphQLString },
         tags: { type: new GraphQLList(GraphQLString) },
+        user: { type: GraphQLString }
       },
-      resolve(parentValue, { title, content, tags }) {
-        return (new Note({ title, content, tags })).save()
+      resolve(parentValue, { title, content, tags, user }) {
+        return (new Note({ title, content, tags, user })).save()
       }
     },
     deleteNote: {
