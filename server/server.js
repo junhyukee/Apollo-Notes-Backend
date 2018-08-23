@@ -13,8 +13,7 @@ const cors = require('cors');
 const app = express();
 
 var corsOptions = {
-  // origin: 'https://practical-allen-d788d0.netlify.com/',
-  origin: '*',
+  origin: 'https://practical-allen-d788d0.netlify.com',
   credentials: true
 };
 
