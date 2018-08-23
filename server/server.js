@@ -13,7 +13,7 @@ const cors = require('cors');
 const app = express();
 
 var corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: 'https://practical-allen-d788d0.netlify.com/',
   credentials: true
 };
 
@@ -50,7 +50,7 @@ app.use(bodyParser.json());
 
 app.use('/graphql', expressGraphQL({
   schema,
-  graphiql: true
+  graphiql: false
 }));
 
 const webpackMiddleware = require('webpack-dev-middleware');
