@@ -13,11 +13,13 @@ const cors = require('cors');
 const app = express();
 
 var corsOptions = {
-  origin: 'https://practical-allen-d788d0.netlify.com/',
+  // origin: 'https://practical-allen-d788d0.netlify.com/',
+  origin: '*',
   credentials: true
 };
 
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 require('dotenv').load();
 
