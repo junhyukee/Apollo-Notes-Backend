@@ -1,2 +1,2 @@
-# LambdaNotes GraphQL Backend
-To be used with Lambda Notes, code mostly taken from Stephen Grider's Lyrical Repo
+# Apollo Notes Backend
+To be used with [Apollo Notes](https://github.com/junhyukee/Apollo-Notes).
